@@ -1,0 +1,48 @@
+{% extends "admin_home_dashboard.html" %}
+{% block title %} Teachers {% endblock %}
+
+{% block display %}
+ <div class="width">
+    <div class="row border-bottom pb-2">
+        <div class="col-8">
+            <form action="" style="display: flex;">
+                <input type="text" class="form-control" placeholder="Teacher's Name...">
+                <input type="submit" value="Search" class="mx-2 btn btn-sm btn-danger">
+            </form>
+        </div>
+        <div class="col-4">
+            <a href="{{ url_for('register_teacher') }}"><button class="btn btn btn-success mx-2">
+                <i class="fa-solid fa-plus"></i> Add Teacher</button>
+           </a>
+        </div>
+    </div>
+    <table class="table 
+    table-active table-sm table-width 
+     caption-top table-responsive">
+    <caption>St. Philip's Nyabondo Teachers</caption>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>TSC No.</th>
+                <th>Phone</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher in all_teachers %}
+               <tr>
+                   <td>{{ loop.index }}</td>
+                   <td>{{ teacher['name'] }}</td>
+                   <td>{{ teacher['tsc_no'] }}</td>
+                   <td>{{ teacher['phone'] }}</td>
+                   <td>
+                       <button class="btn btn-sm btn-success">edit</button>
+                       <button class="btn btn-sm btn-danger mx-1">delete</button>
+                   </td>
+               </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+ </div>
+{% endblock %}

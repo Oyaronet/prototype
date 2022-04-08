@@ -1,0 +1,43 @@
+{% extends "admin_home_dashboard.html" %}
+{% block title %} Teachers {% endblock %}
+
+{% block display %}
+ <div class="width">
+    <div class="row border-bottom pb-2">
+        <div class="col-8">
+            <form action="" style="display: flex;">
+                <input type="text" class="form-control" placeholder="Teacher's Name...">
+                <input type="submit" value="Search" class="mx-2 btn btn-sm btn-danger">
+            </form>
+        </div>
+        <div class="col-4">
+            <a href=""><button class="btn btn btn-success mx-2">
+                <i class="fa-solid fa-plus"></i> Add Teacher</button>
+           </a>
+        </div>
+    </div>
+   <div class="card mt-2 p-3" style="max-width: 350px;">
+       <form action="">
+           <h6 class="border-bottom pb-2">Register new Teacher</h6>
+           {{ form.hidden_tag() }}
+           <fieldset>
+               {{ form.firstname.label(class="form-label") }}
+               <div class="form-group">
+                    {{ form.firstname(class="form-control", placeholder='John') }}
+               </div>
+               {{ form.secondname.label(class="form-label") }}
+               <div class="form-group">
+                    {{ form.secondname(class="form-control", placeholder='Doe') }}
+               </div>
+               {{ form.lastname.label(class="form-label") }}
+               <div class="form-group">
+                    {{ form.lastname(class="form-control", placeholder='Martin') }}
+               </div>
+               <div class="d-grid gap-2 mt-2">
+                   {{ form.button(class="btn btn-danger btn-sm")}}
+               </div>
+           </fieldset>
+       </form>
+   </div>
+ </div>
+{% endblock %}

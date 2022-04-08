@@ -1,0 +1,31 @@
+{% extends "admin_home_dashboard.html" %}
+{% block title %} Teachers {% endblock %}
+
+{% block display %}
+<div class="row mt-2">
+    <div class="col-md mt-1">
+        <div class="card card-h">
+             <div class="container-fluid pt-1" id="c-btn">
+                 <h6 class="text-center">Missed Lessons for all Teachers</h6>
+             </div>
+             <div class="container-fluid">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mt-1">
+        <div class="card card-h">
+            <div class="container-fluid pt-1" id="c-btn">
+                <h6 class="text-center">Missed Lessons Analysis</h6>
+            </div>
+        </div>
+    </div>
+    <div class="col-md mt-1">
+        <div class="card card-h">
+            <div class="container-fluid pt-1" id="c-btn">
+                <h6 class="text-center">Missed Lessons Analysis</h6>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

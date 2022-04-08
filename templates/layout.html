@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='master.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-5.0.2-dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fontawesome.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">
+</head>
+<body>
+    <div class="container-fluid bg-1">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container-fluid justify-end">
+                    <a href="#" class="navbar-brand">
+                        <h3><span class="text-warning fw-bold">
+                            <i class="fa-solid fa-chalkboard-user"></i>
+                            Nyabondo</span> E-System&trade;</h3>
+                    </a>
+                  <button 
+                    class="navbar-toggler"
+                    type="button" 
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" 
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item"><a class="nav-link" href="#">
+                          <i class="fa-solid fa-phone"></i> Contact Us
+                      </a></li>
+                      {% block navbar %}{% endblock %}
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    </div>
+    {% block content %}{% endblock %}
+    <div class="container border-bottom bg-light" style="height: 30px; text-align: right;">
+        <small class="text-muted">System Developed By Oyaro Jared &copy;
+            <span class="fw-bold">2022</span>
+        </small>
+    </div>
+<script src="{{ url_for('static', filename='bootstrap-5.0.2-dist/js/bootstrap.bundle.js') }}"></script> 
+</body>
+</html>

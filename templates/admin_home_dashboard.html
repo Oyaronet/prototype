@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block title %} Admin Dashboard {% endblock %}
+
+{% block navbar %}
+<li class="nav-item dropdown">
+    <a 
+        class="nav-link dropdown-toggle" 
+        href="#" id="navbarDropdown" 
+        role="button" 
+        data-bs-toggle="dropdown" 
+        aria-expanded="false"><i class="fa-solid fa-gear mx-2"></i>Settings
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li class="mx-2"><a href="#">Personal Info</a></li> 
+        <li class="mx-2"><a href="{{ url_for('display_teachers') }}">Teachers</a></li> 
+        <li class="mx-2"><a href="#">Enter Data</a></li>   
+        <li class="mx-2"><a href="#" class="fw-bold">Logout</a></li>                            
+     </ul>                     
+</li>
+{% endblock %}
+{% block content %}
+<div class="container bg-light">
+    <div class="row mt-1">
+        <div class="col-md">
+            <h6 class="fw-bold">ST. PHILIP'S NYABONDO SEC. SCHOOL</h6>
+        </div>
+        <div class="col-md" style="display: flex;">
+            <h6 class="text-warning fw-bold">Term:</h6>
+            <span><input type="text" id="form-w" class="mx-2 form-control" 
+                value="{{ settings['term'] }}" readonly></span>
+            <h6 class="text-warning fw-bold">Week:</h6>
+            <span><input type="text" id="form-w" class="mx-2 form-control" 
+                value="{{ settings['week'] }}/{{ settings['term_length'] }}" readonly></span>
+            <h6 class="text-warning fw-bold">Date:</h6>
+            <span><input type="text" id="form-width" class="mx-2 form-control" 
+                value="{{ settings['date'] }}" readonly></span>
+        </div>
+    </div>
+    <div class="card">
+        <div class="row p-1">
+            <div class="col-sm">
+                <div class="circle bg-secondary mx-2 text-center">
+                    <i class="mx-2 fa-solid fa-person-chalkboard mt-4"></i>
+                </div>
+            </div>
+            <div class="col-sm">
+                <h6 class="fw-bold text-success">{{ teacher["username"] }} 
+                    <span class="text-danger fw-bold">Admin</span>
+                </h6>
+                <p>{{ teacher["email"] }}</p>
+            </div>
+            <div class="col-sm"></div>
+            <div class="col-sm"></div>
+        </div>
+    </div>
+ {% block display %} {% endblock %}
+</div>
+</div>
+{% endblock %}

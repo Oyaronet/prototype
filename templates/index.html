@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block title %} Teacher Login {% endblock %}
+
+{% block navbar %}
+    <ul class="navbar-nav ms-auto text-end">
+        <li><a href="#" class="nav-link">Admin</a></li>
+        <li><a href="#" class="nav-link">About Us</a></li>
+        <li><a href="#" class="nav-link"><i class="fa-solid fa-phone"></i> Contacts</a></li>
+    </ul>
+{% endblock %}
+{% block content %}
+    <div class="container bg-light pb-3" style="height: 540px;">
+        <h6 class="text-warning border-bottom pt-2 pb-2 mt-2 fw-bold">Teacher Log in
+            <i class="mx-2 fa-solid fa-person-chalkboard"></i>
+        </h6>
+         <div class="form-width card p-2">
+            {% with messages=get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert text-center p-1 alert-{{ category }}">
+                            <small>{{ message }}</small>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+           {% endwith %}
+             <h5 class="border-bottom pb-2 fw-bold text-center">Log in
+                 <i class=" mx-2 fa-solid fa-lock"></i>
+             </h5>
+             <form action="" method="post">
+                {{ form.hidden_tag() }}
+                <fieldset>
+                    {{ form.username.label(class="form-label", placeholder="examplename@nyabondo") }}
+                    {% if form.username.errors %}
+                        {{ form.username(class="form-control is-invalid",placeholder="examplename@nyabondo") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.username.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.username(class="form-control",placeholder="examplename@nyabondo") }}
+                    {% endif %}
+                    {{ form.password.label(class="form-label", placeholder="1234") }}
+                    {% if form.password.errors %}
+                        {{ form.password(class="form-control is-invalid", placeholder="1234") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.password(class="form-control", placeholder="1234") }}
+                    {% endif %}
+                    <div class="d-grid gap-2 mt-2">
+                        {{ form.button(class="btn", id="c-btn") }}
+                    </div>
+                    <div class="mt-2">
+                    <small class="text-muted">Forgot Password? 
+                        <a href="#" class="mx-2">Click Here</a>
+                    </small>
+                    </div>
+                </fieldset>
+             </form>
+         </div>
+    </div>
+{% endblock %}
